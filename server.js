@@ -10,7 +10,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+if (!process.env.OPENAI_API_KEY) {
+  console.warn("⚠️  OPENAI_API_KEY is not set — chat will return fallback responses");
+}
+
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY || "missing" });
 
 const SYSTEM_PROMPT = `Eres Panita, una asistente virtual simpática y cálida de una panadería venezolana. Respondes siempre en español natural y amigable, como en una conversación real de WhatsApp. Ayudas a los clientes con preguntas sobre productos, precios y pedidos. Tus respuestas son cortas, máximo 3 líneas.`;
 
