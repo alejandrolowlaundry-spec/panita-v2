@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="logo.png">
+  <title>Panita - Tu asistente inteligente por WhatsApp</title>
+  <meta name="description" content="Panita es tu asistente inteligente por WhatsApp para negocios y emprendedores en Venezuela. Atiende clientes, responde preguntas y vende más, todo desde tu celular.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #25D366;
+      --green-dark: #1DA851;
+      --blue: #0A1F3F;
+      --blue-light: #1A3A6A;
+      --yellow: #FFC107;
+      --yellow-light: #FFE082;
+      --gray-light: #F5F7FA;
+      --gray: #6B7280;
+      --white: #FFFFFF;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 100;
+      padding: 10px 0;
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 120px;
+      width: auto;
+    }
+
+    .nav-cta {
+      background: var(--green);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--green-dark); }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 180px 24px 80px;
+      text-align: center;
+      background: linear-gradient(170deg, var(--blue) 0%, var(--blue-light) 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: white;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .hero-inner {
+      max-width: 750px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--green);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 .highlight {
+      color: var(--green);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 17px;
+      transition: transform 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 16px 36px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 17px;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .hero-phone {
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .phone-mockup {
+      background: #ECE5DD;
+      border-radius: 36px;
+      width: 320px;
+      min-height: 620px;
+      margin: 0 auto;
+      padding: 0;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 6px solid #1a1a1a;
+    }
+
+    .phone-header {
+      background: #075e54;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .phone-avatar {
+      width: 38px;
+      height: 38px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .phone-name {
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .phone-status {
+      font-size: 12px;
+      opacity: 0.85;
+    }
+
+    .phone-chat {
+      background: #ECE5DD;
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    .phone-chat::-webkit-scrollbar { width: 2px; }
+    .phone-chat::-webkit-scrollbar-thumb { background: #bbb; }
+
+    .chat-bubble {
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      max-width: 82%;
+      line-height: 1.45;
+      color: #111;
+    }
+
+    .chat-bubble.bot {
+      background: white;
+      align-self: flex-start;
+      border-bottom-left-radius: 3px;
+      color: #111;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .chat-bubble.user {
+      background: #DCF8C6;
+      align-self: flex-end;
+      border-bottom-right-radius: 3px;
+      color: #111;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .chat-time {
+      font-size: 10px;
+      color: #667781;
+      margin-top: 2px;
+    }
+
+    /* ── Interactive input bar ── */
+    #mock-inputbar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      background: #f0f2f5;
+      flex-shrink: 0;
+    }
+
+    #mock-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      border-radius: 20px;
+      padding: 9px 14px;
+      font-size: 13px;
+      font-family: inherit;
+      color: #111;
+      background: white;
+    }
+
+    #mock-input::placeholder { color: #adb5bd; }
+
+    #mock-send {
+      width: 38px;
+      height: 38px;
+      background: #075e54;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .15s;
+    }
+
+    #mock-send:hover { background: #128c7e; }
+
+    /* typing dots inside chat */
+    .mock-typing {
+      display: inline-flex;
+      gap: 4px;
+      align-items: center;
+      background: white;
+      padding: 8px 12px;
+      border-radius: 12px;
+      border-bottom-left-radius: 4px;
+    }
+
+    .mock-dot {
+      width: 6px; height: 6px;
+      background: #8696a0;
+      border-radius: 50%;
+      animation: mdot 1.2s infinite;
+    }
+    .mock-dot:nth-child(2) { animation-delay: .2s; }
+    .mock-dot:nth-child(3) { animation-delay: .4s; }
+    @keyframes mdot {
+      0%,60%,100% { transform: translateY(0); opacity:.5; }
+      30% { transform: translateY(-4px); opacity:1; }
+    }
+
+    /* make phone-chat scrollable */
+    .phone-chat {
+      overflow-y: auto;
+      max-height: 220px;
+    }
+    .phone-chat::-webkit-scrollbar { width: 2px; }
+    .phone-chat::-webkit-scrollbar-thumb { background: #ccc; }
+
+    /* ===== SECTION SHARED ===== */
+    section {
+      padding: 80px 24px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 4px 14px;
+      border-radius: 16px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 50px;
+    }
+
+    /* ===== BENEFITS ===== */
+    .benefits { background: var(--gray-light); }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .benefit-card {
+      background: white;
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .benefit-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(37, 211, 102, 0.1);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 18px;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .benefit-card p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      counter-reset: step;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 56px;
+      height: 56px;
+      background: var(--blue);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 auto 20px;
+    }
+
+    .step h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ===== WHO IT'S FOR ===== */
+    .audience { background: var(--gray-light); }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .audience-card {
+      background: white;
+      border-radius: 14px;
+      padding: 28px 24px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .audience-card:hover {
+      border-color: var(--green);
+    }
+
+    .audience-icon {
+      font-size: 40px;
+      margin-bottom: 14px;
+    }
+
+    .audience-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .audience-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      background: linear-gradient(170deg, var(--blue) 0%, var(--blue-light) 100%);
+      text-align: center;
+      color: white;
+    }
+
+    .cta .section-title { color: white; }
+    .cta .section-subtitle { color: rgba(255,255,255,0.8); margin-left: auto; margin-right: auto; }
+
+    .cta-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cta-input {
+      flex: 1;
+      min-width: 240px;
+      padding: 16px 20px;
+      border-radius: 30px;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .cta-input::placeholder { color: rgba(255,255,255,0.5); }
+    .cta-input:focus { border-color: var(--green); }
+
+    .cta-btn {
+      background: var(--green);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+    }
+
+    .cta-note {
+      margin-top: 16px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #0D1B2A;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 14px;
+    }
+
+    footer a { color: var(--green); text-decoration: none; }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 640px) {
+      .hero { padding: 120px 20px 60px; }
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+      .btn-primary, .btn-secondary { padding: 14px 28px; font-size: 15px; }
+      .section-title { font-size: 1.7rem; }
+      section { padding: 60px 20px; }
+      .phone-mockup { max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo" style="font-size:22px;font-weight:800;color:#25D366;text-decoration:none;letter-spacing:-0.5px;">Panita</a>
+      <a href="#unete" class="nav-cta">Quiero probarlo</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Hecho para Venezuela</div>
+      <h1>Tu negocio atendido <span class="highlight">24/7</span> por WhatsApp</h1>
+      <p>Panita es un asistente inteligente que responde a tus clientes, toma pedidos y resuelve preguntas por WhatsApp. Funciona con cualquier celular y red venezolana.</p>
+      <div class="hero-buttons">
+        <a href="#unete" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Quiero probarlo
+        </a>
+        <a href="#como-funciona" class="btn-secondary">Como funciona</a>
+      </div>
+
+      <!-- Phone mockup — interactive -->
+      <div class="hero-phone">
+        <div class="phone-mockup">
+          <div class="phone-header">
+            <div class="phone-avatar">P</div>
+            <div>
+              <div class="phone-name">Panita</div>
+              <div class="phone-status" id="mock-status">en línea</div>
+            </div>
+          </div>
+          <div class="phone-chat" id="mock-chat">
+            <div class="chat-bubble bot">Hola! Soy Panita, el asistente de tu negocio. ¿En qué te puedo ayudar?</div>
+          </div>
+          <div id="mock-inputbar">
+            <input id="mock-input" type="text" placeholder="Escribe un mensaje..." autocomplete="off"/>
+            <button id="mock-send" onclick="mockSend()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section class="benefits">
+    <div class="section-inner">
+      <div class="section-label">Beneficios</div>
+      <h2 class="section-title">Por que Panita?</h2>
+      <p class="section-subtitle">Tu asistente que trabaja por ti, sin complicaciones.</p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128172;</div>
+          <h3>Responde automaticamente</h3>
+          <p>Panita contesta las preguntas de tus clientes al instante, a cualquier hora. No pierdes mas ventas por no contestar a tiempo.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128241;</div>
+          <h3>Funciona con tu celular</h3>
+          <p>Solo necesitas WhatsApp y tu numero venezolano (+58). Funciona con Movistar, Digitel y Movilnet. Sin apps extra.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128176;</div>
+          <h3>Cobra sin problemas</h3>
+          <p>Panita entiende de Pago Movil, Zelle, efectivo en dolares y bolivares. Le explica a tus clientes como pagarte.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">&#128640;</div>
+          <h3>Facil y economico</h3>
+          <p>Lo configuras en minutos. No necesitas computadora, ni pagina web, ni saber de tecnologia. Y cuesta menos que un cafe al dia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section id="como-funciona">
+    <div class="section-inner">
+      <div class="section-label">Como funciona</div>
+      <h2 class="section-title">3 pasos y listo</h2>
+      <p class="section-subtitle">Tan facil como mandar un WhatsApp.</p>
+
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Registra tu negocio</h3>
+          <p>Nos dices el nombre de tu negocio, que vendes, tus precios y como cobras. Nosotros nos encargamos del resto.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Conecta tu numero</h3>
+          <p>Usamos tu numero venezolano de WhatsApp. Tus clientes escriben al mismo numero de siempre.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Panita atiende por ti</h3>
+          <p>Tu asistente responde preguntas, muestra precios, toma pedidos y le dice a tus clientes como pagarte. Tu solo preparas el pedido.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO IT'S FOR ===== -->
+  <section class="audience">
+    <div class="section-inner">
+      <div class="section-label">Para quien es</div>
+      <h2 class="section-title">Si vendes algo, Panita es para ti</h2>
+      <p class="section-subtitle">Hecho para el dia a dia del venezolano que trabaja duro.</p>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-icon">&#127850;</div>
+          <h3>Panaderias y dulcerias</h3>
+          <p>Muestra tu catalogo, toma pedidos de tortas y atiende sin parar.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128085;</div>
+          <h3>Tiendas de ropa</h3>
+          <p>Responde tallas, precios y disponibilidad sin escribir mil mensajes.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128295;</div>
+          <h3>Servicios tecnicos</h3>
+          <p>Agenda citas, da presupuestos y contesta a tus clientes 24/7.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#127828;</div>
+          <h3>Comida y delivery</h3>
+          <p>Menu, precios, pedidos y metodos de pago. Todo automatico.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128137;</div>
+          <h3>Salud y belleza</h3>
+          <p>Reserva citas, muestra servicios y responde preguntas frecuentes.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon">&#128218;</div>
+          <h3>Cualquier emprendimiento</h3>
+          <p>Si vendes por WhatsApp, Panita te ayuda a vender mas y mejor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" id="unete">
+    <div class="section-inner">
+      <div class="section-label">Unete</div>
+      <h2 class="section-title">Prueba Panita gratis</h2>
+      <p class="section-subtitle">Deja tu numero o correo y te contactamos para activar tu asistente. Sin compromiso.</p>
+
+      <form class="cta-form" id="waitlist-form">
+        <input type="text" class="cta-input" id="waitlist-input" placeholder="Tu numero o correo..." required>
+        <button type="submit" class="cta-btn">Quiero probarlo</button>
+      </form>
+      <p class="cta-note">Sin tarjeta. Sin compromiso. Te escribimos por WhatsApp.</p>
+      <p class="cta-note" id="form-success" style="display:none; color: var(--green); font-weight: 600; font-size: 16px; margin-top: 20px;">Listo! Te contactamos pronto. Gracias!</p>
+    </div>
+  </section>
+
+  <!-- ===== WHATSAPP CHAT WIDGET ===== -->
+
+  <!-- Floating button -->
+  <div id="chat-fab" onclick="toggleChat()" title="Chatea con Panita">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </div>
+
+  <!-- Chat window -->
+  <div id="chat-window">
+    <div id="chat-header">
+      <div id="chat-avatar">P</div>
+      <div id="chat-info">
+        <div id="chat-name">Panita</div>
+        <div id="chat-status">en línea</div>
+      </div>
+      <div id="chat-close" onclick="toggleChat()">✕</div>
+    </div>
+    <div id="chat-messages">
+      <div class="date-pill"><span>HOY</span></div>
+    </div>
+    <div id="chat-inputbar">
+      <input type="text" id="chat-input" placeholder="Escribe un mensaje..." autocomplete="off"/>
+      <button id="chat-send" onclick="chatSend()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <style>
+    /* ── FAB ── */
+    #chat-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37,211,102,.5);
+      z-index: 9999;
+      transition: transform .2s, background .2s;
+    }
+    #chat-fab:hover { background: #1DA851; transform: scale(1.08); }
+
+    /* ── Window ── */
+    #chat-window {
+      position: fixed;
+      bottom: 100px;
+      right: 28px;
+      width: 360px;
+      height: 520px;
+      background: #efeae2;
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 9998;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    #chat-window.open { display: flex; animation: popIn .2s ease; }
+    @keyframes popIn {
+      from { opacity:0; transform: scale(.92) translateY(12px); }
+      to   { opacity:1; transform: scale(1) translateY(0); }
+    }
+
+    /* ── Header ── */
+    #chat-header {
+      background: #075e54;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    #chat-avatar {
+      width: 38px; height: 38px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px; font-weight: 700; color: white; flex-shrink: 0;
+    }
+    #chat-info { flex: 1; }
+    #chat-name  { color: white; font-weight: 600; font-size: 15px; }
+    #chat-status { color: rgba(255,255,255,.75); font-size: 12px; }
+    #chat-close { color: rgba(255,255,255,.8); cursor: pointer; font-size: 16px; padding: 4px; }
+    #chat-close:hover { color: white; }
+
+    /* ── Messages ── */
+    #chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      background-image: url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23efeae2'/%3E%3C/svg%3E");
+    }
+    #chat-messages::-webkit-scrollbar { width: 3px; }
+    #chat-messages::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+    .date-pill { text-align:center; margin: 4px 0; }
+    .date-pill span {
+      background: rgba(225,245,254,.9);
+      color: #54656f; font-size: 11px;
+      padding: 3px 10px; border-radius: 7px;
+    }
+
+    .cmsg { display:flex; margin-bottom: 2px; }
+    .cmsg.bot  { justify-content: flex-start; padding-right: 40px; }
+    .cmsg.user { justify-content: flex-end;   padding-left:  40px; }
+
+    .cbubble {
+      max-width: 100%;
+      padding: 7px 10px 5px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.45;
+      position: relative;
+      box-shadow: 0 1px 1px rgba(0,0,0,.1);
+      word-break: break-word;
+    }
+    .cmsg.bot  .cbubble { background: white; border-top-left-radius: 2px; color: #111; }
+    .cmsg.user .cbubble { background: #d9fdd3; border-top-right-radius: 2px; color: #111; }
+
+    .cmsg.bot .cbubble::before {
+      content:''; position:absolute; top:0; left:-7px;
+      border:7px solid transparent;
+      border-top-color:white; border-right-color:white;
+    }
+    .cmsg.user .cbubble::after {
+      content:''; position:absolute; top:0; right:-7px;
+      border:7px solid transparent;
+      border-top-color:#d9fdd3; border-left-color:#d9fdd3;
+    }
+
+    .cmeta {
+      display:flex; align-items:center; justify-content:flex-end;
+      gap:3px; margin-top:3px;
+    }
+    .ctime  { font-size:11px; color:#667781; }
+    .cticks { font-size:12px; color:#53bdeb; }
+
+    /* typing */
+    .ctyping { display:inline-flex; gap:4px; align-items:center;
+      background:white; padding:10px 13px; border-radius:8px;
+      border-top-left-radius:2px; box-shadow:0 1px 1px rgba(0,0,0,.1); }
+    .ctyping::before {
+      content:''; position:absolute; top:0; left:-7px;
+      border:7px solid transparent;
+      border-top-color:white; border-right-color:white;
+    }
+    .cdot { width:7px; height:7px; background:#8696a0; border-radius:50%;
+      animation: cbounce 1.2s infinite; }
+    .cdot:nth-child(2) { animation-delay:.2s; }
+    .cdot:nth-child(3) { animation-delay:.4s; }
+    @keyframes cbounce {
+      0%,60%,100% { transform:translateY(0); opacity:.6; }
+      30% { transform:translateY(-5px); opacity:1; }
+    }
+
+    /* ── Input ── */
+    #chat-inputbar {
+      background: #f0f2f5;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    #chat-input {
+      flex:1; background:white; border:none; outline:none;
+      border-radius:22px; padding:10px 16px;
+      font-size:14px; font-family:inherit; color:#111;
+    }
+    #chat-input::placeholder { color:#adb5bd; }
+    #chat-send {
+      width:42px; height:42px; background:#075e54;
+      border-radius:50%; border:none; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; transition:background .15s;
+    }
+    #chat-send:hover { background:#128c7e; }
+
+    @media(max-width:420px){
+      #chat-window { width:100vw; right:0; bottom:80px; border-radius:16px 16px 0 0; }
+      #chat-fab { bottom:20px; right:20px; }
+    }
+  </style>
+
+  <script>
+    // ── Config ──────────────────────────────────────────────────────
+    const CHAT_API = "https://panita-backend-production.up.railway.app/api/chat";
+    // ────────────────────────────────────────────────────────────────
+
+    const chatHistory = [];
+    let chatOpen = false;
+
+    function toggleChat() {
+      chatOpen = !chatOpen;
+      const win = document.getElementById("chat-window");
+      win.classList.toggle("open", chatOpen);
+      if (chatOpen && chatHistory.length === 0) startChat();
+    }
+
+    function getTime() {
+      return new Date().toLocaleTimeString("es-VE", { hour:"2-digit", minute:"2-digit" });
+    }
+
+    function addMsg(text, sender) {
+      const msgs = document.getElementById("chat-messages");
+      const row  = document.createElement("div");
+      row.className = `cmsg ${sender}`;
+      const bubble = document.createElement("div");
+      bubble.className = "cbubble";
+      bubble.innerHTML = `<div>${text}</div>
+        <div class="cmeta">
+          <span class="ctime">${getTime()}</span>
+          ${sender==="user" ? '<span class="cticks">✓✓</span>' : ""}
+        </div>`;
+      row.appendChild(bubble);
+      msgs.appendChild(row);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function showTyping() {
+      const msgs = document.getElementById("chat-messages");
+      const row  = document.createElement("div");
+      row.className = "cmsg bot"; row.id = "ctyping";
+      row.innerHTML = `<div class="ctyping"><div class="cdot"></div><div class="cdot"></div><div class="cdot"></div></div>`;
+      msgs.appendChild(row);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function hideTyping() {
+      const t = document.getElementById("ctyping");
+      if (t) t.remove();
+    }
+
+    async function startChat() {
+      showTyping();
+      await new Promise(r => setTimeout(r, 1200));
+      hideTyping();
+      const greet = "¡Hola! 👋 Soy Panita, tu asistente de negocios. ¿En qué te puedo ayudar hoy?";
+      addMsg(greet, "bot");
+      chatHistory.push({ role:"assistant", content: greet });
+    }
+
+    async function chatSend() {
+      const input = document.getElementById("chat-input");
+      const text  = input.value.trim();
+      if (!text) return;
+      input.value = "";
+
+      addMsg(text, "user");
+      chatHistory.push({ role:"user", content: text });
+
+      document.getElementById("chat-status").textContent = "escribiendo...";
+      showTyping();
+
+      try {
+        const res  = await fetch(CHAT_API, {
+          method: "POST",
+          headers: { "Content-Type":"application/json" },
+          body: JSON.stringify({ messages: chatHistory }),
+        });
+        const data = await res.json();
+        hideTyping();
+        const reply = data.reply || "Disculpa, ¿puedes repetir? 😅";
+        addMsg(reply, "bot");
+        chatHistory.push({ role:"assistant", content: reply });
+      } catch {
+        hideTyping();
+        addMsg("Disculpa, tuve un problema técnico. Intenta de nuevo. 🙏", "bot");
+      }
+      document.getElementById("chat-status").textContent = "en línea";
+    }
+
+    document.getElementById("chat-input").addEventListener("keydown", e => {
+      if (e.key === "Enter") { e.preventDefault(); chatSend(); }
+    });
+  </script>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Panita &copy; 2026 &mdash; Hecho con cari&ntilde;o para Venezuela &nbsp;|&nbsp;
+      <a href="/privacy.html">Privacidad</a> &nbsp;|&nbsp;
+      <a href="/terms.html">T&eacute;rminos</a>
+    </p>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Waitlist form (stores locally for now, ready to connect to backend later)
+    const form = document.getElementById('waitlist-form');
+    const input = document.getElementById('waitlist-input');
+    const success = document.getElementById('form-success');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const value = input.value.trim();
+      if (!value) return;
+
+      // Store locally (ready to POST to backend later)
+      const waitlist = JSON.parse(localStorage.getItem('panita_waitlist') || '[]');
+      waitlist.push({ contact: value, date: new Date().toISOString() });
+      localStorage.setItem('panita_waitlist', JSON.stringify(waitlist));
+
+      // Show success
+      input.value = '';
+      form.style.display = 'none';
+      success.style.display = 'block';
+
+      console.log('Waitlist signup:', value);
+    });
+
+    // ── Mock chat ──────────────────────────────────────────────
+    var mockHistory = [
+      {role:'assistant', content:'Hola! Soy Panita, el asistente de tu negocio. ¿En qué te puedo ayudar?'}
+    ];
+
+    function mockTime(){
+      return new Date().toLocaleTimeString('es-VE',{hour:'2-digit',minute:'2-digit'});
+    }
+
+    function mockAddBubble(text, who){
+      var chat = document.getElementById('mock-chat');
+      var div  = document.createElement('div');
+      div.className = 'chat-bubble ' + who;
+      div.innerHTML = text
+        + '<div style="display:flex;justify-content:flex-end;gap:3px;margin-top:3px">'
+        + '<span style="font-size:10px;color:#999">' + mockTime() + '</span>'
+        + (who==='user' ? '<span style="font-size:11px;color:#53bdeb">✓✓</span>' : '')
+        + '</div>';
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function mockShowTyping(){
+      var chat = document.getElementById('mock-chat');
+      var div  = document.createElement('div');
+      div.className = 'chat-bubble bot'; div.id = 'mock-typing';
+      div.innerHTML = '<div class="mock-typing"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>';
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    function mockHideTyping(){
+      var t = document.getElementById('mock-typing');
+      if(t) t.remove();
+    }
+
+    async function mockSend(){
+      var inp  = document.getElementById('mock-input');
+      var text = inp.value.trim();
+      if(!text) return;
+      inp.value = '';
+      mockAddBubble(text, 'user');
+      mockHistory.push({role:'user', content:text});
+      document.getElementById('mock-status').textContent = 'escribiendo...';
+      mockShowTyping();
+      try {
+        var res  = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({messages: mockHistory})
+        });
+        var data = await res.json();
+        mockHideTyping();
+        var reply = data.reply || '¿Puedes repetir? 😅';
+        mockAddBubble(reply, 'bot');
+        mockHistory.push({role:'assistant', content:reply});
+      } catch(e) {
+        mockHideTyping();
+        mockAddBubble('Disculpa, hubo un problema. 🙏', 'bot');
+      }
+      document.getElementById('mock-status').textContent = 'en línea';
+    }
+
+    document.getElementById('mock-input').addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); mockSend(); }
+    });
+    // ───────────────────────────────────────────────────────────
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       WHATSAPP CHAT WIDGET
+  ═══════════════════════════════════════════════ -->
+  <style>
+    #p-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.55);z-index:99999;border:none;transition:transform .2s,background .2s}
+    #p-fab:hover{background:#1DA851;transform:scale(1.08)}
+    #p-win{position:fixed;bottom:96px;right:24px;width:370px;height:540px;border-radius:18px;overflow:hidden;box-shadow:0 12px 50px rgba(0,0,0,.28);z-index:99998;display:none;flex-direction:column;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+    #p-win.show{display:flex;animation:pIn .22s ease}
+    @keyframes pIn{from{opacity:0;transform:translateY(16px) scale(.95)}to{opacity:1;transform:none}}
+    #p-head{background:#075e54;padding:12px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+    #p-av{width:40px;height:40px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0}
+    #p-info{flex:1}
+    #p-name{color:#fff;font-weight:700;font-size:15px}
+    #p-stat{color:rgba(255,255,255,.75);font-size:12px}
+    #p-x{color:rgba(255,255,255,.8);cursor:pointer;font-size:18px;padding:4px;line-height:1}
+    #p-x:hover{color:#fff}
+    #p-msgs{flex:1;overflow-y:auto;padding:12px 10px;display:flex;flex-direction:column;gap:4px;background:#e5ddd5}
+    #p-msgs::-webkit-scrollbar{width:3px}
+    #p-msgs::-webkit-scrollbar-thumb{background:#bbb;border-radius:3px}
+    .p-date{text-align:center;margin:6px 0}
+    .p-date span{background:rgba(225,245,254,.92);color:#54656f;font-size:11px;padding:3px 10px;border-radius:7px}
+    .p-row{display:flex;margin:1px 0}
+    .p-row.bot{justify-content:flex-start;padding-right:52px}
+    .p-row.usr{justify-content:flex-end;padding-left:52px}
+    .p-bub{max-width:100%;padding:7px 10px 4px;border-radius:8px;font-size:14px;line-height:1.45;position:relative;box-shadow:0 1px 2px rgba(0,0,0,.12);word-break:break-word}
+    .p-row.bot .p-bub{background:#fff;border-top-left-radius:2px;color:#111}
+    .p-row.usr .p-bub{background:#d9fdd3;border-top-right-radius:2px;color:#111}
+    .p-row.bot .p-bub::before{content:'';position:absolute;top:0;left:-8px;border:8px solid transparent;border-top-color:#fff;border-right-color:#fff}
+    .p-row.usr .p-bub::after{content:'';position:absolute;top:0;right:-8px;border:8px solid transparent;border-top-color:#d9fdd3;border-left-color:#d9fdd3}
+    .p-meta{display:flex;align-items:center;justify-content:flex-end;gap:3px;margin-top:3px}
+    .p-time{font-size:11px;color:#667781}
+    .p-ticks{font-size:12px;color:#53bdeb}
+    .p-typing{background:#fff;border-radius:8px;border-top-left-radius:2px;padding:10px 14px;display:inline-flex;gap:5px;align-items:center;box-shadow:0 1px 2px rgba(0,0,0,.12)}
+    .p-dot{width:7px;height:7px;background:#8696a0;border-radius:50%;animation:pBounce 1.2s infinite}
+    .p-dot:nth-child(2){animation-delay:.2s}
+    .p-dot:nth-child(3){animation-delay:.4s}
+    @keyframes pBounce{0%,60%,100%{transform:translateY(0);opacity:.6}30%{transform:translateY(-5px);opacity:1}}
+    #p-bar{background:#f0f2f5;padding:8px 10px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+    #p-inp{flex:1;border:none;outline:none;border-radius:22px;padding:10px 16px;font-size:14px;font-family:inherit;color:#111;background:#fff}
+    #p-inp::placeholder{color:#adb5bd}
+    #p-btn{width:44px;height:44px;background:#075e54;border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
+    #p-btn:hover{background:#128c7e}
+    @media(max-width:420px){#p-win{width:100vw;right:0;bottom:80px;border-radius:16px 16px 0 0}#p-fab{bottom:18px;right:18px}}
+  </style>
+
+  <!-- FAB button -->
+  <button id="p-fab" onclick="pToggle()" aria-label="Abrir chat">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </button>
+
+  <!-- Chat window -->
+  <div id="p-win">
+    <div id="p-head">
+      <div id="p-av">P</div>
+      <div id="p-info">
+        <div id="p-name">Panita</div>
+        <div id="p-stat">en línea</div>
+      </div>
+      <div id="p-x" onclick="pToggle()">✕</div>
+    </div>
+    <div id="p-msgs">
+      <div class="p-date"><span>HOY</span></div>
+    </div>
+    <div id="p-bar">
+      <input id="p-inp" type="text" placeholder="Escribe un mensaje..." autocomplete="off"/>
+      <button id="p-btn" onclick="pSend()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    var pHistory = [];
+    var pStarted = false;
+
+    function pTime(){
+      return new Date().toLocaleTimeString('es-VE',{hour:'2-digit',minute:'2-digit'});
+    }
+
+    function pToggle(){
+      var w = document.getElementById('p-win');
+      var open = w.classList.toggle('show');
+      if(open && !pStarted){ pStarted=true; pGreet(); }
+    }
+
+    function pAddMsg(text, who){
+      var msgs = document.getElementById('p-msgs');
+      var row  = document.createElement('div');
+      row.className = 'p-row '+who;
+      var bub = document.createElement('div');
+      bub.className = 'p-bub';
+      bub.innerHTML = '<div>'+text+'</div>'
+        +'<div class="p-meta"><span class="p-time">'+pTime()+'</span>'
+        +(who==='usr'?'<span class="p-ticks">✓✓</span>':'')
+        +'</div>';
+      row.appendChild(bub);
+      msgs.appendChild(row);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function pShowTyping(){
+      var msgs = document.getElementById('p-msgs');
+      var row  = document.createElement('div');
+      row.className='p-row bot'; row.id='p-typing';
+      row.innerHTML='<div class="p-typing"><div class="p-dot"></div><div class="p-dot"></div><div class="p-dot"></div></div>';
+      msgs.appendChild(row);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function pHideTyping(){
+      var t=document.getElementById('p-typing');
+      if(t) t.remove();
+    }
+
+    function pGreet(){
+      pShowTyping();
+      setTimeout(function(){
+        pHideTyping();
+        var g='¡Hola! 👋 Soy el asistente de Panita. ¿En qué te puedo ayudar hoy?';
+        pAddMsg(g,'bot');
+        pHistory.push({role:'assistant',content:g});
+      },1200);
+    }
+
+    async function pSend(){
+      var inp  = document.getElementById('p-inp');
+      var text = inp.value.trim();
+      if(!text) return;
+      inp.value='';
+      pAddMsg(text,'usr');
+      pHistory.push({role:'user',content:text});
+      document.getElementById('p-stat').textContent='escribiendo...';
+      pShowTyping();
+      try{
+        var res  = await fetch('/api/chat',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({messages:pHistory})
+        });
+        var data = await res.json();
+        pHideTyping();
+        var reply = data.reply || '¿Puedes repetir? 😅';
+        pAddMsg(reply,'bot');
+        pHistory.push({role:'assistant',content:reply});
+      }catch(e){
+        pHideTyping();
+        pAddMsg('Disculpa, hubo un problema. Intenta de nuevo. 🙏','bot');
+      }
+      document.getElementById('p-stat').textContent='en línea';
+    }
+
+    document.getElementById('p-inp').addEventListener('keydown',function(e){
+      if(e.key==='Enter'){e.preventDefault();pSend();}
+    });
+  </script>
+
+</body>
+</html>
