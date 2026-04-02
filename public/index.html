@@ -928,11 +928,361 @@
     .ads-cta-btn:hover { background: #3367d6; transform: translateY(-2px); }
 
     @media (max-width: 640px) {
-      .ads-hero { padding: 120px 20px 60px; }
+      .ads-hero  { padding: 120px 20px 60px; }
       .ads-hero h1 { font-size: 2.1rem; }
-      .nav-tab { padding: 7px 12px; font-size: 12px; }
+      .meta-hero { padding: 120px 20px 60px; }
+      .meta-hero h1 { font-size: 2.1rem; }
+      .nav-tab { padding: 7px 10px; font-size: 11px; }
       .ads-mock-sitelinks { display: none; }
+      .meta-mock-actions { display: none; }
     }
+
+    /* ===== META ADS PAGE ===== */
+    #page-meta { display: none; }
+
+    .meta-hero {
+      padding: 160px 24px 80px;
+      text-align: center;
+      background: linear-gradient(170deg, #0A1F3F 0%, #1a2d5a 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .meta-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 100%; height: 80px;
+      background: #f5f7fa;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    .meta-hero-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta-badge {
+      display: inline-block;
+      background: rgba(24,119,242,0.2);
+      color: #93c5fd;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(24,119,242,0.35);
+    }
+
+    .meta-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .meta-highlight { color: #1877F2; }
+
+    .meta-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    .meta-hero-buttons {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .meta-btn-primary {
+      background: #1877F2;
+      color: white;
+      padding: 16px 30px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .meta-btn-primary:hover { background: #1464d8; transform: translateY(-2px); }
+
+    .meta-btn-secondary {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      padding: 16px 34px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      transition: background 0.2s;
+    }
+
+    .meta-btn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+    /* Facebook/Instagram ad mockup */
+    .meta-mockup {
+      max-width: 360px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px 16px 0 0;
+      overflow: hidden;
+      box-shadow: 0 -4px 40px rgba(0,0,0,0.3);
+      text-align: left;
+    }
+
+    .meta-mock-topbar {
+      background: #1877F2;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .meta-mock-topbar-logo {
+      font-size: 18px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .meta-mock-topbar-icons {
+      display: flex;
+      gap: 14px;
+      color: white;
+      font-size: 16px;
+    }
+
+    .meta-mock-feed {
+      background: #f0f2f5;
+      padding: 10px;
+    }
+
+    .meta-mock-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      animation: metaPulse 3.5s ease-in-out infinite;
+    }
+
+    @keyframes metaPulse {
+      0%, 100% { box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+      50% { box-shadow: 0 0 0 3px rgba(24,119,242,0.2), 0 1px 3px rgba(0,0,0,0.1); }
+    }
+
+    .meta-mock-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px 6px;
+    }
+
+    .meta-mock-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1877F2, #42b0ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .meta-mock-page-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #1c1e21;
+      line-height: 1.2;
+    }
+
+    .meta-mock-sponsored {
+      font-size: 11px;
+      color: #65676b;
+    }
+
+    .meta-mock-copy {
+      padding: 4px 12px 10px;
+      font-size: 13px;
+      color: #1c1e21;
+      line-height: 1.4;
+    }
+
+    .meta-mock-image {
+      width: 100%;
+      height: 160px;
+      background: linear-gradient(135deg, #1877F2 0%, #42b0ff 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      position: relative;
+    }
+
+    .meta-mock-img-headline {
+      font-size: 15px;
+      font-weight: 800;
+      text-align: center;
+      padding: 0 16px;
+      line-height: 1.3;
+    }
+
+    .meta-mock-img-sub {
+      font-size: 11px;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    .meta-mock-cta-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-top: 1px solid #e4e6eb;
+    }
+
+    .meta-mock-cta-info { font-size: 11px; color: #65676b; }
+    .meta-mock-cta-info strong { display: block; font-size: 12px; color: #1c1e21; }
+
+    .meta-mock-cta-btn {
+      background: #e7f3ff;
+      color: #1877F2;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .meta-mock-actions {
+      display: flex;
+      padding: 4px 12px 10px;
+      gap: 4px;
+    }
+
+    .meta-mock-action {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      color: #65676b;
+      padding: 6px;
+      border-radius: 6px;
+      background: #f0f2f5;
+      font-weight: 600;
+    }
+
+    .meta-mock-label {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      padding: 10px;
+    }
+
+    /* Shared section styles (reuse ads-section, ads-grid, ads-card, ads-steps, ads-step-num, ads-step) */
+    .meta-section { padding: 80px 24px; }
+    .meta-section.gray { background: var(--gray-light); }
+
+    .meta-label {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1877F2;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .meta-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 2px solid transparent;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .meta-card:hover { border-color: #1877F2; transform: translateY(-4px); }
+    .meta-card .card-icon { font-size: 36px; margin-bottom: 16px; }
+    .meta-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+    .meta-card p  { font-size: 0.9rem; color: var(--gray); }
+
+    .meta-step-num {
+      width: 52px; height: 52px;
+      background: #1877F2;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 800;
+      margin: 0 auto 20px;
+    }
+
+    .meta-cta {
+      background: linear-gradient(170deg, #0A1F3F 0%, #1a2d5a 100%);
+      text-align: center;
+      color: white;
+      padding: 80px 24px;
+    }
+
+    .meta-cta-form {
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .meta-cta-input {
+      flex: 1;
+      min-width: 240px;
+      padding: 16px 20px;
+      border-radius: 30px;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .meta-cta-input::placeholder { color: rgba(255,255,255,0.45); }
+    .meta-cta-input:focus { border-color: #1877F2; }
+
+    .meta-cta-btn {
+      background: #1877F2;
+      color: white;
+      padding: 16px 32px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .meta-cta-btn:hover { background: #1464d8; transform: translateY(-2px); }
   </style>
 </head>
 <body>
@@ -942,15 +1292,13 @@
     <div class="nav-inner">
       <a href="#" class="logo" onclick="switchTab('panita');return false;" style="font-size:22px;font-weight:800;color:#25D366;text-decoration:none;letter-spacing:-0.5px;">Panita</a>
       <div class="nav-tabs">
-        <button class="nav-tab active" id="tab-btn-panita" onclick="switchTab('panita')">
-          💬 Panita
-        </button>
-        <button class="nav-tab" id="tab-btn-ads" onclick="switchTab('ads')">
-          🎯 Panita Ads
-        </button>
+        <button class="nav-tab active" id="tab-btn-panita" onclick="switchTab('panita')">💬 Panita</button>
+        <button class="nav-tab" id="tab-btn-ads" onclick="switchTab('ads')">🎯 Google Ads</button>
+        <button class="nav-tab" id="tab-btn-meta" onclick="switchTab('meta')">📘 Meta Ads</button>
       </div>
-      <a href="#unete" class="nav-cta" id="nav-cta-panita">Quiero probarlo</a>
-      <a href="#ads-contacto" class="nav-cta" id="nav-cta-ads" style="display:none;background:#4285F4;">Quiero empezar</a>
+      <a href="#unete"        class="nav-cta" id="nav-cta-panita">Quiero probarlo</a>
+      <a href="#ads-contacto" class="nav-cta" id="nav-cta-ads"  style="display:none;background:#4285F4;">Quiero empezar</a>
+      <a href="#meta-contacto" class="nav-cta" id="nav-cta-meta" style="display:none;background:#1877F2;">Quiero empezar</a>
     </div>
   </nav>
 
@@ -1277,6 +1625,176 @@
     </section>
 
   </div><!-- end #page-ads -->
+
+  <!-- ===== META ADS PAGE ===== -->
+  <div id="page-meta">
+
+    <section class="meta-hero">
+      <div class="meta-hero-inner">
+        <div class="meta-badge">Panita Meta Ads — Facebook e Instagram</div>
+        <h1>Tu marca frente a <span class="meta-highlight">millones</span><br>todos los días.</h1>
+        <p>Creamos anuncios en Facebook e Instagram que generan clientes reales — no solo likes. Cada peso invertido trabaja para hacer crecer tu negocio.</p>
+        <div class="meta-hero-buttons">
+          <a href="#meta-contacto" class="meta-btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" style="flex-shrink:0"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Quiero más clientes
+          </a>
+          <a href="#meta-como-funciona" class="meta-btn-secondary">¿Cómo funciona?</a>
+        </div>
+
+        <!-- Facebook ad mockup -->
+        <div class="meta-mockup">
+          <div class="meta-mock-topbar">
+            <div class="meta-mock-topbar-logo">facebook</div>
+            <div class="meta-mock-topbar-icons">🔔 👤</div>
+          </div>
+          <div class="meta-mock-feed">
+            <div class="meta-mock-card">
+              <div class="meta-mock-header">
+                <div class="meta-mock-avatar" id="meta-mock-avatar">T</div>
+                <div>
+                  <div class="meta-mock-page-name" id="meta-mock-page">Tu Negocio</div>
+                  <div class="meta-mock-sponsored">Patrocinado · <span>🌐</span></div>
+                </div>
+              </div>
+              <div class="meta-mock-copy" id="meta-mock-copy">¿Buscas el mejor servicio en tu ciudad? Nosotros lo tenemos. ⭐ Más de 500 clientes satisfechos. ¡Contáctanos hoy!</div>
+              <div class="meta-mock-image">
+                <div class="meta-mock-img-headline" id="meta-mock-headline">Oferta Especial — Solo Esta Semana</div>
+                <div class="meta-mock-img-sub" id="meta-mock-sub">Descuento del 20% en tu primer pedido</div>
+              </div>
+              <div class="meta-mock-cta-bar">
+                <div class="meta-mock-cta-info">
+                  <span id="meta-mock-domain">tunegocio.com</span>
+                  <strong id="meta-mock-cta-title">Aprovecha la oferta</strong>
+                </div>
+                <div class="meta-mock-cta-btn" id="meta-mock-cta-btn">Ver más</div>
+              </div>
+              <div class="meta-mock-actions">
+                <div class="meta-mock-action">👍 Me gusta</div>
+                <div class="meta-mock-action">💬 Comentar</div>
+                <div class="meta-mock-action">↗️ Compartir</div>
+              </div>
+            </div>
+          </div>
+          <div class="meta-mock-label">Así se ve tu anuncio en Facebook →</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="meta-section gray">
+      <div class="section-inner">
+        <div class="meta-label">Beneficios</div>
+        <h2 class="section-title">¿Por qué Panita Meta Ads?</h2>
+        <p class="section-subtitle">Facebook e Instagram tienen a tus clientes. Nosotros hacemos que te encuentren.</p>
+        <div class="ads-grid">
+          <div class="meta-card">
+            <div class="card-icon">🎯</div>
+            <h3>Segmentación exacta</h3>
+            <p>Llegamos a personas por edad, ubicación, intereses y comportamientos. Tu anuncio lo ve quien realmente puede comprarte, no todo el mundo.</p>
+          </div>
+          <div class="meta-card">
+            <div class="card-icon">📸</div>
+            <h3>Creativos que detienen el scroll</h3>
+            <p>Diseñamos anuncios visuales que capturan la atención en los primeros 2 segundos. Imágenes, videos y carruseles que convierten.</p>
+          </div>
+          <div class="meta-card">
+            <div class="card-icon">🔄</div>
+            <h3>Remarketing inteligente</h3>
+            <p>Perseguimos a las personas que visitaron tu página pero no compraron. El segundo toque convierte hasta 3x más que el primero.</p>
+          </div>
+          <div class="meta-card">
+            <div class="card-icon">📊</div>
+            <h3>Datos en tiempo real</h3>
+            <p>Reportes claros cada semana: alcance, clics, conversiones y costo por resultado. Sabes exactamente en qué se gasta cada peso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="meta-section" id="meta-como-funciona">
+      <div class="section-inner">
+        <div class="meta-label">Como funciona</div>
+        <h2 class="section-title">3 pasos y tus anuncios están corriendo</h2>
+        <p class="section-subtitle">Nos encargamos de todo. Tú solo apruebas y ves los resultados.</p>
+        <div class="ads-steps">
+          <div class="ads-step">
+            <div class="meta-step-num">1</div>
+            <h3>Entendemos tu negocio</h3>
+            <p>¿Qué vendes? ¿A quién? ¿Cuál es tu objetivo — ventas, leads o visitas? Una sesión de 15 minutos es todo lo que necesitamos.</p>
+          </div>
+          <div class="ads-step">
+            <div class="meta-step-num">2</div>
+            <h3>Creamos los anuncios</h3>
+            <p>Diseñamos los creativos, escribimos los textos, configuramos el píxel, los públicos y la estrategia de pujas. Tú lo apruebas.</p>
+          </div>
+          <div class="ads-step">
+            <div class="meta-step-num">3</div>
+            <h3>Optimizamos cada semana</h3>
+            <p>Analizamos resultados, cortamos lo que no funciona y escalamos los anuncios ganadores. Tu campaña mejora con el tiempo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section class="meta-section gray">
+      <div class="section-inner">
+        <div class="meta-label">Para quién es</div>
+        <h2 class="section-title">Si tienes algo que vender, Meta Ads es para ti</h2>
+        <p class="section-subtitle">Facebook e Instagram funcionan para casi cualquier negocio. Aquí están los que más se benefician.</p>
+        <div class="ads-grid">
+          <div class="meta-card">
+            <div class="card-icon">👗</div>
+            <h3>Moda y accesorios</h3>
+            <p>Muestra tu colección con carruseles y videos. Instagram es el escaparate perfecto para marcas visuales.</p>
+          </div>
+          <div class="meta-card">
+            <div class="card-icon">🍽️</div>
+            <h3>Restaurantes y comida</h3>
+            <p>Anuncios locales para que las personas cercanas a tu restaurante vean tus platos y pidan online o vengan a tu local.</p>
+          </div>
+          <div class="meta-card">
+            <div class="card-icon">💆</div>
+            <h3>Estética y bienestar</h3>
+            <p>Salones, spas, centros de estética — el antes/después y los testimonios en video son el formato más potente en Meta.</p>
+          </div>
+          <div class="meta-card">
+            <div class="card-icon">🏠</div>
+            <h3>Inmobiliario</h3>
+            <p>Muestra propiedades con recorridos virtuales y capta leads calificados directamente desde Facebook e Instagram.</p>
+          </div>
+          <div class="meta-card">
+            <div class="card-icon">📦</div>
+            <h3>E-commerce</h3>
+            <p>Catálogo dinámico que muestra los productos exactos que cada usuario miró — remarketing automático y altamente efectivo.</p>
+          </div>
+          <div class="meta-card">
+            <div class="card-icon">🎯</div>
+            <h3>Cualquier negocio local</h3>
+            <p>Si tu cliente está en Facebook o Instagram (y casi todos lo están), podemos llegar a él con el mensaje correcto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="meta-cta" id="meta-contacto">
+      <div class="section-inner">
+        <div class="meta-label" style="background:rgba(24,119,242,0.2);color:#93c5fd;">Empecemos</div>
+        <h2 class="section-title" style="color:white;">Consulta gratis, sin compromiso</h2>
+        <p style="color:rgba(255,255,255,0.75);max-width:500px;margin:0 auto 36px;font-size:1rem;">Déjanos tu número o correo y en menos de 24 horas te mostramos qué resultados puedes esperar con Meta Ads en tu negocio.</p>
+        <form class="meta-cta-form" id="meta-form" onsubmit="submitMetaForm(event)">
+          <input type="text" class="meta-cta-input" placeholder="Tu número o correo..." required>
+          <button type="submit" class="meta-cta-btn">Quiero empezar</button>
+        </form>
+        <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,0.45);">Sin tarjeta. Sin contrato. Te contactamos por WhatsApp.</p>
+        <p id="meta-form-success" style="display:none;margin-top:20px;font-size:16px;font-weight:600;color:#34A853;">¡Listo! Te escribimos pronto. 📘</p>
+      </div>
+    </section>
+
+  </div><!-- end #page-meta -->
 
   <!-- ===== WHATSAPP CHAT WIDGET ===== -->
 
@@ -1716,15 +2234,59 @@
     }
     setInterval(rotateAd, 3500);
 
+    // ── Meta mockup rotator ──────────────────────────────────────
+    const metaExamples = [
+      {
+        avatar: 'T', page: 'Tu Negocio', domain: 'tunegocio.com',
+        copy: '¿Buscas el mejor servicio en tu ciudad? ⭐ Más de 500 clientes satisfechos. ¡Contáctanos hoy!',
+        headline: 'Oferta Especial — Solo Esta Semana', sub: 'Descuento del 20% en tu primer pedido',
+        cta: 'Ver más', btn: 'Ver más'
+      },
+      {
+        avatar: 'M', page: 'Moda Latina', domain: 'modalatina.com',
+        copy: '🔥 Nueva colección de verano. Estilos únicos que no encontrarás en ningún otro lugar. Envío gratis.',
+        headline: 'Nueva Colección 2025', sub: 'Envío gratis en pedidos +$30',
+        cta: 'Comprar ahora', btn: 'Comprar'
+      },
+      {
+        avatar: 'R', page: 'Restaurante Casa', domain: 'restaurantecasa.com',
+        copy: '🍽️ Pide ahora y recibe en 30 min. Comida casera, ingredientes frescos. ¡Tu favorito a domicilio!',
+        headline: '30% Off en tu primer pedido', sub: 'Usa el código: BIENVENIDO',
+        cta: 'Pedir ahora', btn: 'Pedir'
+      },
+      {
+        avatar: 'S', page: 'Spa & Bienestar', domain: 'spabienestar.com',
+        copy: '✨ Mereces un descanso. Masajes, faciales y tratamientos especiales. Reserva hoy y recibe 15% off.',
+        headline: '15% Off tu primera visita', sub: 'Plazas limitadas esta semana',
+        cta: 'Reservar', btn: 'Reservar'
+      },
+    ];
+    let metaIdx = 0;
+    function rotateMeta() {
+      const ex = metaExamples[metaIdx % metaExamples.length];
+      document.getElementById('meta-mock-avatar').textContent   = ex.avatar;
+      document.getElementById('meta-mock-page').textContent     = ex.page;
+      document.getElementById('meta-mock-copy').textContent     = ex.copy;
+      document.getElementById('meta-mock-headline').textContent = ex.headline;
+      document.getElementById('meta-mock-sub').textContent      = ex.sub;
+      document.getElementById('meta-mock-domain').textContent   = ex.domain;
+      document.getElementById('meta-mock-cta-title').textContent = ex.cta;
+      document.getElementById('meta-mock-cta-btn').textContent  = ex.btn;
+      metaIdx++;
+    }
+    setInterval(rotateMeta, 3500);
+
     // ── Tab switcher ──────────────────────────────────────────────
     function switchTab(tab) {
-      const isPanita = tab === 'panita';
-      document.getElementById('page-panita').style.display = isPanita ? 'block' : 'none';
-      document.getElementById('page-ads').style.display    = isPanita ? 'none' : 'block';
-      document.getElementById('tab-btn-panita').classList.toggle('active', isPanita);
-      document.getElementById('tab-btn-ads').classList.toggle('active', !isPanita);
-      document.getElementById('nav-cta-panita').style.display = isPanita ? '' : 'none';
-      document.getElementById('nav-cta-ads').style.display    = isPanita ? 'none' : '';
+      document.getElementById('page-panita').style.display = tab === 'panita' ? 'block' : 'none';
+      document.getElementById('page-ads').style.display    = tab === 'ads'    ? 'block' : 'none';
+      document.getElementById('page-meta').style.display   = tab === 'meta'   ? 'block' : 'none';
+      document.getElementById('tab-btn-panita').classList.toggle('active', tab === 'panita');
+      document.getElementById('tab-btn-ads').classList.toggle('active',    tab === 'ads');
+      document.getElementById('tab-btn-meta').classList.toggle('active',   tab === 'meta');
+      document.getElementById('nav-cta-panita').style.display = tab === 'panita' ? '' : 'none';
+      document.getElementById('nav-cta-ads').style.display    = tab === 'ads'    ? '' : 'none';
+      document.getElementById('nav-cta-meta').style.display   = tab === 'meta'   ? '' : 'none';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1732,6 +2294,12 @@
       e.preventDefault();
       document.getElementById('ads-form').style.display = 'none';
       document.getElementById('ads-form-success').style.display = 'block';
+    }
+
+    function submitMetaForm(e) {
+      e.preventDefault();
+      document.getElementById('meta-form').style.display = 'none';
+      document.getElementById('meta-form-success').style.display = 'block';
     }
   </script>
 
