@@ -1719,8 +1719,8 @@
     // ── Tab switcher ──────────────────────────────────────────────
     function switchTab(tab) {
       const isPanita = tab === 'panita';
-      document.getElementById('page-panita').style.display = isPanita ? '' : 'none';
-      document.getElementById('page-ads').style.display    = isPanita ? 'none' : '';
+      document.getElementById('page-panita').style.display = isPanita ? 'block' : 'none';
+      document.getElementById('page-ads').style.display    = isPanita ? 'none' : 'block';
       document.getElementById('tab-btn-panita').classList.toggle('active', isPanita);
       document.getElementById('tab-btn-ads').classList.toggle('active', !isPanita);
       document.getElementById('nav-cta-panita').style.display = isPanita ? '' : 'none';
